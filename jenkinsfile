@@ -13,7 +13,7 @@ pipeline {
                 git url: 'https://github.com/shashavali12/pipelineplaywright.git', branch: 'main'
             }
         }
-}
+
 
         stage('Install Dependencies') {
             steps {
@@ -51,6 +51,7 @@ pipeline {
                 bat '''
                 echo "Deploying the project..."
 '''
+}
 }
 }
 }
