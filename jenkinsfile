@@ -49,6 +49,7 @@ pipeline {
                
                 bat '''
                 echo "Deploying the project..."
+'''
 }
 }
 }
