@@ -3,7 +3,8 @@ pipeline {
 
     environment {
         NODEJS_HOME = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'configuration
-        PATH = "${NODEJS_HOME}/bin:${env.PATH}"
+       // PATH = "${NODEJS_HOME}/bin:${env.PATH}"
+          env.PATH = "${npmHome}/bin:${env.PATH}"  
     }
 
     stages {
