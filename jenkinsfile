@@ -19,8 +19,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install project dependencies
-                bat 'npm install'
-                bat 'npx playwright install'
+              
+                bat 'npm init playwright@latest'
                 
             }
         }
