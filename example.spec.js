@@ -1,24 +1,24 @@
 
-import { test, expect } from '@playwright/test';
-//const { Details } = require('../pageObject/playwrightpage.ts');
+const { test, expect } = require('@playwright/test');
 
-test('has title', async ({ page }) => {
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
+test('Automation Demo Site', async ({ page }) => {
+  await page.goto('https://demo.automationtesting.in/Register.html');
+  
+  await page.locator("//*[@id='basicBootstrapForm']/div[1]/div[1]/input").fill('vali')
+  await page.locator("//*[@id='basicBootstrapForm']/div[1]/div[2]/input").fill('bhai')
+  await page.locator("//*[@id='basicBootstrapForm']/div[2]/div/textarea").fill("fulladdress")
+  await page.locator("//*[@id='eid']/input").fill("valishashagmail.com")
+  await page.locator("//*[@id='basicBootstrapForm']/div[4]/div/input").fill("9884664646")
+  await page.locator("//*[@id='basicBootstrapForm']/div[5]/div/label[1]/input").click()
+  await page.locator("//*[@id='basicBootstrapForm']/div[5]/div/label[2]/input").click()
+  await page.locator("//*[@id='checkbox1']").click()
+  await page.locator("//*[@id='checkbox2']").click()
+  await page.locator("//*[@id='checkbox3']").click()
+  await page.locator("//*[@id='firstpassword']").fill("12345")
+  await page.locator("//*[@id='secondpassword']").fill('12345')
+  await page.locator("//*[@id='submitbtn']").click()
+  await page.pause();
 
-
-    await page.getByPlaceholder("Username").fill('Admin');
-    await page.getByPlaceholder("Password").fill('admin123');
-    await page.locator("[type='submit']").click();
-    await page.getByRole('navigation').getByRole('link', { name: 'Admin' }).click();
-    const xpath = "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]";
-    await page.locator(xpath).click();
-    await page.waitForTimeout(1000);
-    //   const vali ="//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[2]/i";
-    await page.locator("(//*[contains(text(),'Admin')])[1]").click();
-    const xpath1="//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]";
-    await page.locator(xpath1).click();
-    await page.locator("(//*[contains(text(),'Enabled')])[1]").click();
-    await page.pause();
 });
 
 
