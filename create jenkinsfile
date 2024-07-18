@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    environment {
+        NODEJS_HOME = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'configuration
+        PATH = "${NODEJS_HOME}/bin:${env.PATH}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+               
+                git url: 'https://github.com/shashavali12/pipelineplaywright.git', branch: 'main'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install project dependencies
+                bat 'npm install'
+                bat 'npx playwright install'
+                
+            }
+        }
+
+        stage('Test') {
+            steps {
+       
+                           bat 'npx playwright test --headed'
+            }
+        }
+
+       stage('Build') {
+            steps {
+           
+                script {
+                    def npmHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+                    env.PATH = "${npmHome}/bin:${env.PATH}"
+                }
+                //bat 'npm install'
+                bat 'npm run build'
+
+
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+               
+                bat '''
+                echo "Deploying the project..."
+}
+}
+}
